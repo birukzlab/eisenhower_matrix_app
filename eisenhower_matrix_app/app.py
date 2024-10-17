@@ -2,9 +2,12 @@
 
 from flask import Flask, render_template, request, redirect, url_for, session
 from utils.categorizer import categorize_tasks
+import os
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Replace with a secure random key
+
+# Load configurations
+app.config.from_pyfile('instance/config.py')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
@@ -16,8 +19,8 @@ def home():
             task = {
                 'title': request.form.get(f'title_{i}'),
                 'objective': request.form.get(f'objective_{i}'),
-                'importance': request.form.get(f'importance_{i}'),
-                'urgency': request.form.get(f'urgency_{i}')
+                'importance': request.form.get(f'importance_{i}') == 'on',
+                'urgency': request.form.get(f'urgency_{i}') == 'on'
             }
             tasks.append(task)
         # Store tasks in session

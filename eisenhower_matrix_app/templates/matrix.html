@@ -6,7 +6,7 @@
 <h1>Your Eisenhower Matrix</h1>
 <div class="matrix-grid">
     <div class="quadrant">
-        <h2>Do First (Urgent & Important)</h2>
+        <h2>Do First<br>(Urgent & Important)</h2>
         <ul>
             {% for task in matrix.do_first %}
                 <li><strong>{{ task.title }}</strong>: {{ task.objective }}</li>
@@ -16,7 +16,7 @@
         </ul>
     </div>
     <div class="quadrant">
-        <h2>Schedule (Not Urgent but Important)</h2>
+        <h2>Schedule<br>(Important but Not Urgent)</h2>
         <ul>
             {% for task in matrix.schedule %}
                 <li><strong>{{ task.title }}</strong>: {{ task.objective }}</li>
@@ -26,7 +26,7 @@
         </ul>
     </div>
     <div class="quadrant">
-        <h2>Delegate (Urgent but Not Important)</h2>
+        <h2>Delegate<br>(Urgent but Not Important)</h2>
         <ul>
             {% for task in matrix.delegate %}
                 <li><strong>{{ task.title }}</strong>: {{ task.objective }}</li>
@@ -36,7 +36,7 @@
         </ul>
     </div>
     <div class="quadrant">
-        <h2>Eliminate (Neither Urgent nor Important)</h2>
+        <h2>Eliminate<br>(Neither Urgent nor Important)</h2>
         <ul>
             {% for task in matrix.eliminate %}
                 <li><strong>{{ task.title }}</strong>: {{ task.objective }}</li>
@@ -48,3 +48,4 @@
 </div>
 <a href="{{ url_for('home') }}">Back to Task Entry</a>
 {% endblock %}
+

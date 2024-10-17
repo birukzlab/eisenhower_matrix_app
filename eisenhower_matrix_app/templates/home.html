@@ -9,14 +9,14 @@
     <div id="tasks-container">
         <div class="task" id="task_0">
             <h3>Task 1</h3>
-            <label>Title:</label>
-            <input type="text" name="title_0" required><br>
-            <label>Objective:</label>
-            <input type="text" name="objective_0"><br>
-            <label>Important:</label>
-            <input type="checkbox" name="importance_0" value="True"><br>
-            <label>Urgent:</label>
-            <input type="checkbox" name="urgency_0" value="True"><br>
+            <label for="title_0">Title:</label>
+            <input type="text" name="title_0" id="title_0" required><br>
+            <label for="objective_0">Objective:</label>
+            <input type="text" name="objective_0" id="objective_0"><br>
+            <label for="importance_0">Important:</label>
+            <input type="checkbox" name="importance_0" id="importance_0"><br>
+            <label for="urgency_0">Urgent:</label>
+            <input type="checkbox" name="urgency_0" id="urgency_0"><br>
         </div>
     </div>
     <button type="button" onclick="addTask()">Add Another Task</button>
@@ -33,14 +33,14 @@ function addTask() {
     taskDiv.id = `task_${taskCount}`;
     taskDiv.innerHTML = `
         <h3>Task ${taskCount + 1}</h3>
-        <label>Title:</label>
-        <input type="text" name="title_${taskCount}" required><br>
-        <label>Objective:</label>
-        <input type="text" name="objective_${taskCount}"><br>
-        <label>Important:</label>
-        <input type="checkbox" name="importance_${taskCount}" value="True"><br>
-        <label>Urgent:</label>
-        <input type="checkbox" name="urgency_${taskCount}" value="True"><br>
+        <label for="title_${taskCount}">Title:</label>
+        <input type="text" name="title_${taskCount}" id="title_${taskCount}" required><br>
+        <label for="objective_${taskCount}">Objective:</label>
+        <input type="text" name="objective_${taskCount}" id="objective_${taskCount}"><br>
+        <label for="importance_${taskCount}">Important:</label>
+        <input type="checkbox" name="importance_${taskCount}" id="importance_${taskCount}"><br>
+        <label for="urgency_${taskCount}">Urgent:</label>
+        <input type="checkbox" name="urgency_${taskCount}" id="urgency_${taskCount}"><br>
     `;
     container.appendChild(taskDiv);
     taskCount++;
@@ -48,3 +48,4 @@ function addTask() {
 }
 </script>
 {% endblock %}
+

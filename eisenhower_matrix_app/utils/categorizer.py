@@ -1,16 +1,15 @@
-# Utility functions for categorizing tasks
 # utils/categorizer.py
 
 def categorize_tasks(tasks):
     matrix = {
-        'do_first': [],        # Urgent and Important
-        'schedule': [],        # Not Urgent but Important
-        'delegate': [],        # Urgent but Not Important
-        'eliminate': []        # Neither Urgent nor Important
+        'do_first': [],    # Urgent and Important
+        'schedule': [],    # Not Urgent but Important
+        'delegate': [],    # Urgent but Not Important
+        'eliminate': []    # Neither Urgent nor Important
     }
     for task in tasks:
-        importance = task['importance'] == 'True'
-        urgency = task['urgency'] == 'True'
+        importance = task['importance']
+        urgency = task['urgency']
 
         if importance and urgency:
             matrix['do_first'].append(task)
@@ -21,3 +20,4 @@ def categorize_tasks(tasks):
         else:
             matrix['eliminate'].append(task)
     return matrix
+
