@@ -1,15 +1,50 @@
-{% extends 'base.html' %}
+<!-- templates/home.html -->
+
+{% extends "base.html" %}
+
 {% block content %}
-<form method="post">
-    <label for="task">Task Name:</label>
-    <input type="text" name="task" required>
-    <label for="category">Task Category:</label>
-    <select name="category">
-        <option value="urgent_important">Urgent & Important</option>
-        <option value="important_not_urgent">Important but Not Urgent</option>
-        <option value="urgent_not_important">Urgent but Not Important</option>
-        <option value="not_urgent_not_important">Neither Urgent nor Important</option>
-    </select>
-    <button type="submit">Add Task</button>
+<h1>Enter Your Tasks</h1>
+<form method="post" id="task-form">
+    <input type="hidden" name="num_tasks" id="num_tasks" value="1">
+    <div id="tasks-container">
+        <div class="task" id="task_0">
+            <h3>Task 1</h3>
+            <label>Title:</label>
+            <input type="text" name="title_0" required><br>
+            <label>Objective:</label>
+            <input type="text" name="objective_0"><br>
+            <label>Important:</label>
+            <input type="checkbox" name="importance_0" value="True"><br>
+            <label>Urgent:</label>
+            <input type="checkbox" name="urgency_0" value="True"><br>
+        </div>
+    </div>
+    <button type="button" onclick="addTask()">Add Another Task</button>
+    <button type="submit">Generate Matrix</button>
 </form>
+
+<script>
+let taskCount = 1;
+
+function addTask() {
+    const container = document.getElementById('tasks-container');
+    const taskDiv = document.createElement('div');
+    taskDiv.className = 'task';
+    taskDiv.id = `task_${taskCount}`;
+    taskDiv.innerHTML = `
+        <h3>Task ${taskCount + 1}</h3>
+        <label>Title:</label>
+        <input type="text" name="title_${taskCount}" required><br>
+        <label>Objective:</label>
+        <input type="text" name="objective_${taskCount}"><br>
+        <label>Important:</label>
+        <input type="checkbox" name="importance_${taskCount}" value="True"><br>
+        <label>Urgent:</label>
+        <input type="checkbox" name="urgency_${taskCount}" value="True"><br>
+    `;
+    container.appendChild(taskDiv);
+    taskCount++;
+    document.getElementById('num_tasks').value = taskCount;
+}
+</script>
 {% endblock %}

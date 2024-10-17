@@ -1,14 +1,32 @@
-/* Custom CSS styles for the app */
+/* static/css/styles.css */
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-}
-header {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-.content {
     margin: 20px;
 }
+
+.matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.quadrant {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+h2 {
+    background-color: #f4f4f4;
+    padding: 5px;
+}
+
+.task {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
